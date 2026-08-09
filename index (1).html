@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desa Jukong-Jukong — Kangayan, Kepulauan Kangean</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E86C9;
+    --navy-deep:#0A6A9E;
+    --sand:#F2FBFA;
+    --sand-light:#FFFFFF;
+    --teal:#17C3A2;
+    --amber:#0E86C9;
+    --driftwood:#0A6A9E;
+    --ink:#0B1214;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--sand-light);
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--navy-deep);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem 5%;
+    background:rgba(14,58,69,0.92);
+    backdrop-filter:blur(6px);
+    color:var(--sand-light);
+  }
+  .logo{display:flex;align-items:center;gap:0.6rem;font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;letter-spacing:0.02em;}
+  .logo img{height:38px;width:38px;object-fit:contain;border-radius:50%;background:#fff;padding:2px;}
+  .logo span{color:var(--teal);}
+  nav ul{list-style:none;display:flex;gap:2rem;font-size:0.92rem;}
+  nav a{text-decoration:none;opacity:0.88;transition:opacity .2s;}
+  nav a:hover{opacity:1;color:var(--teal);}
+  .nav-toggle{display:none;background:none;border:0;color:var(--sand-light);font-size:1.5rem;cursor:pointer;}
+
+  @media(max-width:760px){
+    nav ul{
+      position:fixed;top:64px;right:-100%;
+      flex-direction:column;background:var(--navy-deep);
+      width:70%;height:100vh;padding:2rem;gap:1.5rem;
+      transition:right .3s ease;
+    }
+    nav ul.open{right:0;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:flex-end;
+    background:linear-gradient(135deg, #0E86C9 0%, #17C3A2 100%);
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    z-index:0;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg, rgba(8,16,25,0.3) 0%, rgba(8,16,25,0.8) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    padding:0 6% 6rem;
+    color:var(--sand-light);
+    max-width:760px;
+  }
+  .hero-content .eyebrow{color:var(--teal);}
+  .hero-content h1{
+    font-size:clamp(2.4rem,6vw,4.2rem);
+    line-height:1.05;
+    margin:0.6rem 0 1rem;
+    color:#FFFFFF;
+  }
+  .hero-content p{font-size:1.05rem;max-width:520px;opacity:0.92;margin-bottom:1.8rem;}
+  .btn{
+    display:inline-block;padding:0.85rem 1.8rem;
+    background:var(--navy-deep);color:#FFFFFF;
+    border:1px solid var(--teal);
+    font-weight:600;text-decoration:none;border-radius:2px;
+    letter-spacing:0.02em;transition:transform .2s, background .2s;
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--teal);}
+
+  .wave-divider{position:relative;width:100%;height:70px;margin-top:-2px;z-index:3;}
+  .wave-divider svg{width:100%;height:100%;display:block;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:5.5rem 6%;}
+  .section-head{max-width:640px;margin-bottom:2.8rem;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:0.4rem;}
+
+  /* PROFIL */
+  .profil{background:var(--sand-light);}
+  .profil-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+  .profil-text p{margin-bottom:1.1rem;color:#2B3E43;}
+  .profil-fact{
+    background:var(--navy);color:var(--sand-light);
+    padding:2rem;border-left:4px solid var(--teal);
+  }
+  .profil-fact .eyebrow{color:var(--teal);margin-bottom:0.6rem;}
+  .profil-fact dl{display:grid;grid-template-columns:auto 1fr;gap:0.5rem 1rem;font-size:0.92rem;margin-top:1rem;}
+  .profil-fact dt{opacity:0.65;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;text-transform:uppercase;}
+  .profil-fact dd{font-weight:500;}
+
+  @media(max-width:800px){.profil-grid{grid-template-columns:1fr;}}
+
+  /* STRUKTUR PEMERINTAHAN */
+  .struktur{background:var(--sand-light);}
+  .org-chart{display:flex;flex-direction:column;align-items:center;}
+  .org-node{
+    background:#fff;border:1px solid rgba(14,58,69,0.1);
+    border-radius:6px;padding:1.2rem 1.6rem;
+    text-align:center;min-width:180px;
+    box-shadow:0 2px 14px rgba(14,58,69,0.07);
+  }
+  .org-top{border-top:3px solid var(--teal);min-width:220px;}
+  .org-role{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);
+    margin-bottom:0.3rem;
+  }
+  .org-node h3{font-size:1.05rem;}
+  .org-top h3{font-size:1.3rem;}
+  .org-line{width:2px;height:2.5rem;background:rgba(14,58,69,0.18);}
+  .org-row{
+    display:flex;flex-wrap:wrap;justify-content:center;
+    gap:1.6rem;margin-top:0.5rem;
+  }
+  @media(max-width:700px){.org-row{flex-direction:column;align-items:center;}}
+
+  /* VISI MISI */
+  .visi{background:var(--navy-deep);color:var(--sand-light);}
+  .visi .eyebrow{color:var(--teal);}
+  .visi-statement{
+    font-family:'Fraunces',serif;font-weight:500;font-style:italic;
+    font-size:clamp(1.3rem,2.6vw,1.9rem);
+    max-width:820px;line-height:1.4;margin:1rem 0 3rem;
+    color:var(--sand-light);
+  }
+  .misi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;}
+  .misi-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    padding:1.8rem;border-radius:4px;
+  }
+  .misi-card .tag{
+    font-family:'IBM Plex Mono',monospace;color:#4FD8A6;
+    font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
+  }
+  .misi-card h3{color:var(--sand-light);font-size:1.15rem;margin:0.5rem 0 0.6rem;}
+  .misi-card p{font-size:0.92rem;opacity:0.82;}
+  @media(max-width:800px){.misi-grid{grid-template-columns:1fr;}}
+
+  /* WISATA */
+  .wisata{background:var(--sand-light);}
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+  .card{
+    background:#fff;border-radius:6px;overflow:hidden;
+    box-shadow:0 2px 18px rgba(14,58,69,0.08);
+  }
+  .card-image{
+    aspect-ratio:4/3;
+    background:linear-gradient(135deg,#17C3A2,#0E86C9);
+    overflow:hidden;
+  }
+  .card-image img{width:100%;height:100%;object-fit:cover;display:block;}
+  .card-body{padding:1.4rem 1.4rem 1.7rem;}
+  .card-body .eyebrow{margin-bottom:0.3rem;}
+  .card-body h3{font-size:1.15rem;margin-bottom:0.5rem;}
+  .card-body p{font-size:0.92rem;color:#3E4E52;}
+  @media(max-width:800px){.card-grid{grid-template-columns:1fr;}}
+
+  /* BERITA */
+  .berita{background:var(--sand);}
+  .berita-card{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:2.5rem;
+    background:#fff;border-radius:6px;overflow:hidden;
+    box-shadow:0 2px 18px rgba(14,58,69,0.08);
+  }
+  .berita-image{
+    background:linear-gradient(135deg,#0A6A9E,#17C3A2);
+    min-height:260px;
+    overflow:hidden;
+  }
+  .berita-image img{width:100%;height:100%;object-fit:cover;display:block;}
+  .berita-content{padding:2.2rem 2.2rem 2.2rem 0;display:flex;flex-direction:column;justify-content:center;}
+  .berita-content h3{font-size:1.5rem;margin:0.4rem 0 0.9rem;}
+  .berita-content p{color:#3E4E52;margin-bottom:0.5rem;}
+  @media(max-width:800px){.berita-card{grid-template-columns:1fr;}.berita-content{padding:0 1.5rem 1.8rem;}.berita-image{min-height:200px;}}
+
+  /* PETA */
+  .peta{background:var(--sand-light);}
+  .peta-frame{
+    border-radius:6px;overflow:hidden;
+    box-shadow:0 2px 18px rgba(14,58,69,0.08);
+    line-height:0;
+  }
+
+  /* FOOTER */
+  footer{
+    background:var(--navy-deep);color:rgba(255,255,255,0.75);
+    padding:3rem 6% 2rem;font-size:0.9rem;
+  }
+  footer .foot-grid{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;margin-bottom:2rem;}
+  footer h4{font-family:'Fraunces',serif;color:var(--sand-light);font-weight:500;margin-bottom:0.6rem;}
+  footer .foot-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;font-size:0.8rem;opacity:0.6;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="images/logo.png" alt="Logo Desa Jukong-Jukong">Jukong<span>-</span>Jukong</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+  <nav>
+    <ul id="navList">
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#struktur">Struktur</a></li>
+      <li><a href="#visi">Visi & Misi</a></li>
+      <li><a href="#wisata">Wisata</a></li>
+      <li><a href="#berita">Berita</a></li>
+      <li><a href="#peta">Lokasi</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img class="hero-bg" src="images/hero.jpg" alt="Pemandangan Desa Jukong-Jukong">
+  <div class="hero-content">
+    <p class="eyebrow">Kecamatan Kangayan · Kepulauan Kangean · Kabupaten Sumenep</p>
+    <h1>Desa Jukong-Jukong</h1>
+    <p>Kampung pesisir di gugusan Kepulauan Kangean, tempat laut menjadi sumber kehidupan dan gotong royong menjadi jati diri warganya.</p>
+    <a href="#profil" class="btn">Kenali Desa Kami</a>
+  </div>
+</section>
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,40 L1440,70 L0,70 Z" fill="#FFFFFF"/></svg>
+</div>
+
+<!-- ============ PROFIL & SEJARAH ============ -->
+<section class="profil" id="profil">
+  <div class="section-head">
+    <p class="eyebrow">Profil Desa</p>
+    <h2>Sejarah & Kearifan Lokal</h2>
+  </div>
+  <div class="profil-grid">
+    <div class="profil-text">
+      <p>Desa Jukong-Jukong terletak di Kecamatan Kangayan, salah satu gugusan Kepulauan Kangean yang menjadi bagian dari Kabupaten Sumenep, Jawa Timur. Nama "Jukong-Jukong" sendiri erat kaitannya dengan perahu tradisional yang sejak dahulu menjadi alat utama masyarakat untuk melaut, mengangkut hasil bumi, dan menjalin hubungan antarpulau. Dikelilingi laut yang jernih dan garis pantai yang tenang, desa ini tumbuh sebagai kampung nelayan yang menjadikan laut bukan sekadar sumber penghidupan, melainkan bagian dari identitas dan cara hidup warganya.</p>
+      <p>Kehidupan masyarakat Jukong-Jukong dibentuk oleh semangat gotong royong yang terus terjaga hingga kini. Mulai dari melaut bersama, memperbaiki jaring dan perahu secara berkelompok, hingga bahu-membahu membangun fasilitas desa, nilai kebersamaan ini menjadi fondasi yang menyatukan warga lintas generasi. Kearifan lokal seperti musyawarah dalam pengambilan keputusan dan saling membantu ketika musim melaut sulit, masih dipegang teguh sebagai warisan leluhur yang menjaga keharmonisan hidup di tengah keterbatasan geografis kepulauan.</p>
+      <p>Kekayaan hasil laut menjadi berkah sekaligus tanggung jawab bagi warga Jukong-Jukong. Ikan, rumput laut, dan hasil tangkapan lain tidak hanya menopang perekonomian rumah tangga, tetapi juga membuka peluang bagi desa untuk berkembang melalui potensi wisata bahari dan produk olahan laut. Dengan tetap berpegang pada tradisi dan kearifan leluhur, Desa Jukong-Jukong terus melangkah menuju masa depan yang lebih sejahtera tanpa kehilangan akar budaya pesisirnya.</p>
+    </div>
+    <div class="profil-fact">
+      <p class="eyebrow">Sekilas Data</p>
+      <dl>
+        <dt>Kecamatan</dt><dd>Kangayan</dd>
+        <dt>Gugusan Pulau</dt><dd>Kepulauan Kangean</dd>
+        <dt>Kabupaten</dt><dd>Sumenep, Jawa Timur</dd>
+        <dt>Mata Pencaharian</dt><dd>Nelayan & hasil laut</dd>
+        <dt>Ciri Khas</dt><dd>Perahu jukong tradisional</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRUKTUR PEMERINTAHAN ============ -->
+<section class="struktur" id="struktur">
+  <div class="section-head">
+    <p class="eyebrow">Pemerintahan Desa</p>
+    <h2>Struktur Organisasi</h2>
+  </div>
+  <div class="org-chart">
+    <div class="org-node org-top">
+      <p class="org-role">Kepala Desa</p>
+      <h3>Hadrawa</h3>
+    </div>
+    <div class="org-line"></div>
+    <div class="org-row">
+      <div class="org-node">
+        <p class="org-role">Sekretaris Desa</p>
+        <h3>Nama Perangkat</h3>
+      </div>
+      <div class="org-node">
+        <p class="org-role">Kasi Pemerintahan</p>
+        <h3>Nama Perangkat</h3>
+      </div>
+      <div class="org-node">
+        <p class="org-role">Kasi Kesejahteraan</p>
+        <h3>Nama Perangkat</h3>
+      </div>
+      <div class="org-node">
+        <p class="org-role">Kaur Keuangan</p>
+        <h3>Nama Perangkat</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISI MISI ============ -->
+<section class="visi" id="visi">
+  <div class="section-head">
+    <p class="eyebrow">Visi & Misi Kepala Desa Hadrawa</p>
+    <h2 style="color:var(--sand-light);">Arah Pembangunan Desa</h2>
+  </div>
+  <p class="visi-statement">"Mewujudkan Desa Jukong-Jukong yang tertib pemerintahannya, merata pembangunannya, guyub warganya, dan berdaya perekonomiannya, selaras dengan Rencana Pembangunan Jangka Menengah Desa (RPJMDes)."</p>
+  <div class="misi-grid">
+    <div class="misi-card">
+      <p class="tag">Penyelenggaraan Pemerintahan</p>
+      <h3>Tata Kelola yang Transparan</h3>
+      <p>Mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan adil dalam memberikan pelayanan publik kepada seluruh lapisan masyarakat.</p>
+    </div>
+    <div class="misi-card">
+      <p class="tag">Pelaksanaan Pembangunan</p>
+      <h3>Infrastruktur yang Merata</h3>
+      <p>Meningkatkan serta meratakan pembangunan infrastruktur fisik, fasilitas umum, dan aksesibilitas di setiap dusun yang ada di wilayah desa.</p>
+    </div>
+    <div class="misi-card">
+      <p class="tag">Pembinaan Kemasyarakatan</p>
+      <h3>Keharmonisan Warga</h3>
+      <p>Menjaga ketenteraman, ketertiban, dan keharmonisan antarwarga, serta mendukung kegiatan keagamaan dan sosial budaya lokal.</p>
+    </div>
+    <div class="misi-card">
+      <p class="tag">Pemberdayaan Masyarakat</p>
+      <h3>Ekonomi Warga yang Berdaya</h3>
+      <p>Meningkatkan perekonomian warga melalui pengembangan usaha produktif keluarga, sektor pertanian, nelayan, atau potensi lokal desa lainnya.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WISATA ============ -->
+<section class="wisata" id="wisata">
+  <div class="section-head">
+    <p class="eyebrow">Potensi Wisata</p>
+    <h2>Pesona Jukong-Jukong</h2>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-image"><img src="images/wisata-1-olbek.jpg" alt="Wisata Olbek"></div>
+      <div class="card-body">
+        <p class="eyebrow">Wisata Alam</p>
+        <h3>Wisata Olbek</h3>
+        <p>Sumber Mata Air Olbek — destinasi wisata alam tersembunyi berupa kolam pemandian dan mata air sejuk di tengah hutan Kepulauan Kangean. Terkenal dengan suasana yang asri dan airnya yang sangat jernih.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image"><img src="images/wisata-2-sosial-budaya.jpg" alt="Kehidupan warga nelayan"></div>
+      <div class="card-body">
+        <p class="eyebrow">Sosial Budaya</p>
+        <h3>Kehidupan Warga Nelayan</h3>
+        <p>Keseharian nelayan merajut dan memperbaiki jaring di tepi pantai, potret keramahan dan ketekunan masyarakat pesisir Jukong-Jukong.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image"><img src="images/wisata-3-hasil-laut.jpg" alt="Hasil tangkapan laut segar"></div>
+      <div class="card-body">
+        <p class="eyebrow">Hasil Laut</p>
+        <h3>Kesegaran Tangkapan Nelayan</h3>
+        <p>Hasil tangkapan laut segar setiap pagi, dari ikan hingga hasil laut lainnya, menjadi bukti kekayaan bahari desa ini.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BERITA ============ -->
+<section class="berita" id="berita">
+  <div class="section-head">
+    <p class="eyebrow">Berita Desa</p>
+    <h2>Kabar Terbaru</h2>
+  </div>
+  <div class="berita-card">
+    <div class="berita-image"><img src="images/berita-gotong-royong.jpg" alt="Gotong royong bersih pantai"></div>
+    <div class="berita-content">
+      <p class="eyebrow">Kegiatan Warga</p>
+      <h3>Bersih Pantai, Warga dan Perangkat Desa Kompak Bergotong Royong</h3>
+      <p>Warga Desa Jukong-Jukong bersama perangkat desa menggelar kegiatan gotong royong membersihkan area pantai pada akhir pekan lalu. Dengan semangat kebersamaan, puluhan warga turun langsung mengumpulkan sampah dan merapikan garis pantai yang menjadi urat nadi kehidupan nelayan setempat.</p>
+      <p>Kepala Desa menyampaikan apresiasi atas antusiasme warga dan berharap kegiatan serupa dapat terus dilaksanakan secara berkala demi menjaga kebersihan dan keindahan pesisir desa. Kegiatan ini juga menjadi wujud nyata kepedulian bersama terhadap kelestarian lingkungan laut yang menjadi sumber kehidupan utama masyarakat Jukong-Jukong.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PETA LOKASI ============ -->
+<section class="peta" id="peta">
+  <div class="section-head">
+    <p class="eyebrow">Lokasi</p>
+    <h2>Peta Desa Jukong-Jukong</h2>
+  </div>
+  <div class="peta-frame">
+    <iframe
+      src="https://www.google.com/maps?q=Jukong-jukong,+Kangayan,+Sumenep+Regency,+East+Java,+Indonesia&z=12&output=embed"
+      width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<footer id="kontak">
+  <div class="foot-grid">
+    <div>
+      <h4>Desa Jukong-Jukong</h4>
+      <p>Kecamatan Kangayan, Kepulauan Kangean<br>Kabupaten Sumenep, Jawa Timur</p>
+    </div>
+    <div>
+      <h4>Tautan</h4>
+      <p><a href="#profil">Profil Desa</a><br><a href="#wisata">Wisata</a><br><a href="#berita">Berita</a></p>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 Pemerintah Desa Jukong-Jukong. Semua hak dilindungi.</div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navList').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
